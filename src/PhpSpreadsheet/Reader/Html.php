@@ -839,13 +839,15 @@ class Html extends BaseReader
         $width = isset($attributes['width']) ? (float) $attributes['width'] : null;
         $height = isset($attributes['height']) ? (float) $attributes['height'] : null;
         $name = isset($attributes['alt']) ? (float) $attributes['alt'] : null;
+        $setOffsetX = isset($attributes['left']) ? (float) $attributes['left'] : 0;
+        $setOffsetY = isset($attributes['top']) ? (float) $attributes['top'] : 10;
 
         $drawing = new Drawing();
         $drawing->setPath($src);
         $drawing->setWorksheet($sheet);
         $drawing->setCoordinates($column . $row);
-        $drawing->setOffsetX(0);
-        $drawing->setOffsetY(10);
+        $drawing->setOffsetX($setOffsetX);
+        $drawing->setOffsetY($setOffsetY);
         $drawing->setResizeProportional(true);
 
         if ($name) {
